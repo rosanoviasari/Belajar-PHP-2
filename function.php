@@ -16,8 +16,9 @@ if(isset($_GET['action']) && isset($_GET['id'])){
 
 }
 function delete_data($id){
+    
     global $connection;
-    $res = mysqli_query($connection,"DELETE FROM tb_person WHERE id -" .$id);
+    $res = mysqli_query($connection,"DELETE FROM tb_person WHERE id =" .$id);
     if($res){
         header('Location: index.php?messages=Berhasil dihapus');
         exit();

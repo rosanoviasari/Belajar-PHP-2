@@ -15,6 +15,7 @@ var_dump($data);
   </head>
   <body>
     <h3>Data RW Bajuri</h3>
+    <a href="form_tambah.php">Tambah Data</a>
     <?php if(isset($_GET['messages'])): ?>
         <p color="red"><?= $_GET['messages'];?></p>
     <?php endif; ?> 
@@ -33,8 +34,8 @@ var_dump($data);
                     <?php foreach($data as $row):?>
                     <tr>
                         <td scope="row">
-                        <a href="function.php?action=edit&id" <?= $row['id'];?> class="btn btn-primary">Edit</a>
-                        <a href="function.php?action=delete&id" <?= $row['id'];?> class="btn btn-outline-danger" onClick="return confirm('Yakin mau menghapus?')">Hapus</a>
+                        <a href="function.php?action=edit&id=<?= $row['id'];?>" class="btn btn-primary">Edit</a>
+                        <a href="function.php?action=delete&id=<?= $row['id'];?>" class="btn btn-outline-danger" onClick="return confirm('Yakin mau menghapus?')">Hapus</a>
                         </td>
                         <td><?= $row['nama'];?></td>
                         <td><?= $row['ktp'];?></td>   
