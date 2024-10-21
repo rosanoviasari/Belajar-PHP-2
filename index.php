@@ -1,6 +1,10 @@
 <?php
 require 'connection.php';
-$data = myquery("SELECT * FROM tb_person");
+
+$data = myquery("SELECT p.id, p.nama, p.ktp, p.tgl_daftar, a.nomor_rumah
+FROM tb_person as p 
+JOIN tb_alamat as a 
+WHERE p.alamat = a.id");
 
 var_dump($data);
 ?>
@@ -34,7 +38,7 @@ var_dump($data);
                     <?php foreach($data as $row):?>
                     <tr>
                         <td scope="row">
-                        <a href="function.php?action=edit&id=<?= $row['id'];?>" class="btn btn-primary">Edit</a>
+                        <a href="form_edit.php?action=edit&id=<?= $row['id'];?>" class="btn btn-primary">Edit</a>
                         <a href="function.php?action=delete&id=<?= $row['id'];?>" class="btn btn-outline-danger" onClick="return confirm('Yakin mau menghapus?')">Hapus</a>
                         </td>
                         <td><?= $row['nama'];?></td>
